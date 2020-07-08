@@ -13,4 +13,6 @@
 - 电子书阅读器：zathura
 - 图片查看feh
 - 视频播放器vlc
-- IDE：intellij IDEA / Eclipse
+- IDE：intellij IDEA / [Eclipse](Eclipse)
+- 图片编辑: Gimp
+- 录屏：obs-studio

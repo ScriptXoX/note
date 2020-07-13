@@ -36,7 +36,7 @@
 - 学习MarkDown 语法（0.5天）
 - 学习Linux常用命令(1天）    
 - 学习Linux Shell （2天）
-- 学习Sql语法 MySql数据库（3天）
+- 学习Sql语法 [MySql数据库（3天）](MySql数据库（3天）)
 - Guild Wars 2数据库建模（1天）
 - 配置Java开发环境（0.5天）
 - 学习Java JDK8.0 （4天）

@@ -5,7 +5,7 @@
 - 参考 http://bjsxt.com/javashipin.html
 
 # 开发环境
- 
+
 - JDK:14
 - IDE:IDEA
 - 数据库：mariadb
@@ -17,7 +17,7 @@
 - tag2 工作空间
 - tag3 资料查询
 - tag4 视频教程
-- tag5 资料阅读 
+- tag5 资料阅读
 - tag6 直播弹幕
 - tag7 obs录屏
 - tag8 虚拟机
@@ -25,7 +25,7 @@
 
 # 分为两个项目
 
-1. 个人博客 
+1. 个人博客
 2. Guild Wars 2 项目 MVC模型 在学的时候以此项目逐渐迭代 用上所学知识
 
 ## 前期准备工作
@@ -36,7 +36,8 @@
 - 学习MarkDown 语法（0.5天）
 - 学习Linux常用命令(1天）    
 - 学习Linux Shell （2天）
-- 学习Sql语法 [MySql数据库（3天）](MySql数据库（3天）)
+- 学习Sql语法
+- MySql数据库（3天）
 - Guild Wars 2数据库建模（1天）
 - 配置Java开发环境（0.5天）
 - 学习Java JDK8.0 （4天）

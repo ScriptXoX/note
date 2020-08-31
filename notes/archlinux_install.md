@@ -33,9 +33,9 @@ timedatectl set-ntp true
 | ------ | ------    | -----                 | -----        |
 | /mnt   | /dev/sdX1 | Linux                 | 剩余空间     |
 | [SWAP] | /dev/sdX2 | Linux swap (交换空间) | 大于 512 MiB |
-    
+
 #### UEFI with GPT
-    
+
 | 挂载点                | 分区                    | 分区类型                | 建议大小     |
 |-----------------------|-------------------------|-------------------------|--------------|
 | /mnt/boot or /mnt/efi | /dev/sdX1  EFI 系统分区 | 260–512 MiB             |              |
@@ -50,18 +50,18 @@ timedatectl set-ntp true
  mkswap /dev/sdx3 #格式化交换分区
  swapon /dev/sdX3 #启用交换分区
  ```
- 
+
  ### 挂载分区
  ```
  mount /dev/sdX2 /mnt  # 根分区
  mkdir -p /mnt/boot/efi #efi分区
  mount /dev/sdx1 /mnt/boot/efi
  ```
- 
+
  ## 安装
  ### 选择镜像
  文件 /etc/pacman.d/mirrorlist 定义了软件包会从哪个镜像源下载，修改文件 /etc/pacman.d/mirrorlist，越前的镜像在下载软件包时有越高的优先权。这个文件接下来还会被 pacstrap 拷贝到新系统里，所以请确保设置正确。
- 
+
  ```
  Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
  Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
@@ -84,7 +84,7 @@ timedatectl set-ntp true
  Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
  Server = https://mirrors.xjtu.edu.cn/archlinux/$repo/os/$arch
  Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
-```
+ ```
 
 ### 安装系统
 ```shell

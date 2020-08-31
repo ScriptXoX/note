@@ -1,0 +1,3 @@
+{
+    "vscode-neovim.neovimInitPath": "~/.config/nvim/init.vim"
+}

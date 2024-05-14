@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 	"time"
 
 	"github.com/go-vgo/robotgo"
@@ -17,23 +19,55 @@ var combatStatusX, combatStatusY, combatColor = 418, 923, []string{"f"}
 var hpX, hpY, hpColor = 796, 906, []string{"9", "a", "b", "c", "d", "e", "f"}
 
 // 是否在水中颜色坐标 和 颜色
-var waterX, waterY, waterColor = 1184, 929, []string{"a5"}
+var waterX, waterY, waterColor = 1184, 929, []string{"a5", "b9"}
 
 // 定义E R F 三个武器技能释放时间
 var indexE, indexR, indexF int64 = time.Now().Unix() - 6, time.Now().Unix() - 9, time.Now().Unix() - 14
 
+// 翠玉机甲是否活着
+var jadeX, jadeY, jadeColor = 474, 876, []string{"9f", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a0"}
+
+var count int = 0
+
 func main() {
+	//robotgo.ActivePid(10764)
 
-	// for i := 0; i < len(targetColor); i++ {
-	// 	fmt.Println(targetColor[i])
-	// }
+	//robotgo.ActiveName("Guild Wars 2")
+	//robotgo.SetFocus(robotgo.GetHWND())
 
+	gw2bot()
+
+}
+
+func SetEnvCount(count int) {
+	//os.Setenv("gw2EMCount", strconv.Itoa(count))
+	os.WriteFile("gw2Count.txt", []byte(strconv.Itoa(count)), 0666)
+}
+
+func getEnvCount() int {
+
+	content, _ := os.ReadFile("gw2Count.txt")
+	count, error := strconv.Atoi(string(content))
+
+	if error != nil {
+		count = 0
+	}
+	return count
 }
 
 func gw2bot() {
 
 	//等待2秒 进入激活窗口
+	//robotgo.Sleep(2)
+
 	robotgo.Sleep(2)
+
+	if count != 0 {
+		SetEnvCount(count)
+	}
+
+	count = getEnvCount()
+	fmt.Println("打怪数量统计：", count)
 
 	for i := 0; ; i++ {
 
@@ -70,16 +104,12 @@ func getTarget() {
 		fmt.Println("没有找到目标怪 换方向 向前走")
 
 		//换方向
-		robotgo.KeyDown("alt")
-		robotgo.KeyDown("a")
-		robotgo.MilliSleep(800)
-		robotgo.KeyUp("a")
-		robotgo.KeyUp("alt")
+		turn(800)
 
 		robotgo.MilliSleep(100)
 
 		//跳着向前走
-		runWithJump(6)
+		runWithJump(12)
 
 	}
 
@@ -88,45 +118,99 @@ func getTarget() {
 // 尝试攻击
 func tryAttack() bool {
 
-	processInWater()
+	if !isGetTarget() {
+		return false
+	}
 
-	robotgo.KeyPress("6")
-	robotgo.MilliSleep(200)
-	robotgo.KeyPress("q")
-	robotgo.MilliSleep(200)
+	for i := 0; i < 3; i++ {
 
-	fmt.Println("调正视角")
-	robotgo.MilliSleep(600)
+		if !isGetTarget() {
+			return false
+		}
+
+		processInWater()
+
+		robotgo.KeyPress("q")
+		robotgo.MilliSleep(100)
+		robotgo.KeyPress("6")
+		robotgo.MilliSleep(100)
+
+		robotgo.Sleep(1)
+
+		fmt.Println("调正视角")
+		robotgo.MilliSleep(100)
+		robotgo.KeyDown("j")
+		robotgo.MilliSleep(50)
+		robotgo.KeyUp("j")
+
+		robotgo.MilliSleep(100)
+		robotgo.KeyDown("k")
+		robotgo.MilliSleep(50)
+		robotgo.KeyUp("k")
+		robotgo.MilliSleep(100)
+
+		fmt.Println("检测是否在战斗状态")
+
+		if !isCombat() {
+			fmt.Println("尝试攻击没有达到怪，尝试")
+			runWithJump(5)
+			//tryAttack()
+		} else {
+			//如果打到怪了退出 进行下一步
+			return isCombat()
+		}
+
+	}
+
+	robotgo.Sleep(1)
+	fmt.Println("多次尝试没达到怪 放弃 掉头")
 	robotgo.KeyDown("alt")
-	robotgo.KeyPress("a")
+	robotgo.MilliSleep(100)
+	robotgo.KeyPress("w")
 	robotgo.KeyUp("alt")
-	robotgo.MilliSleep(200)
-	robotgo.KeyDown("alt")
-	robotgo.KeyPress("d")
-	robotgo.KeyUp("alt")
-	robotgo.MilliSleep(200)
 
-	fmt.Println("检测是否在战斗状态")
+	runWithJump(15)
 
-	return isCombat()
+	turn(700)
+
+	runWithJump(15)
+
+	return false
 
 }
 
 // 进行攻击
 func doAttack() {
 	for i := 0; i < 50; i++ {
-		if !isGetTarget() {
-			fmt.Println("目标消失,停止打怪")
-			return
-		}
 
 		processHP()
 
-		robotgo.Sleep(1)
+		processInWater()
+
+		processJade()
+
+		robotgo.MilliSleep(500)
+
+		if !isGetTarget() {
+			fmt.Println("目标消失,停止打怪")
+			count++
+			SetEnvCount(count)
+
+			fmt.Println("打怪数量:--------------------------------------------------", count)
+			break
+		}
+
+		if !isCombat() {
+			fmt.Println("脱战,停止打怪")
+			count++
+			SetEnvCount(count)
+			fmt.Println("打怪数量:--------------------------------------------------", count)
+			break
+		}
 
 		nowSec := time.Now().Unix()
 		fmt.Println("E", nowSec, indexE)
-		if nowSec-indexE >= 6 {
+		if nowSec-indexE > 6 {
 			fmt.Println("放E 技能")
 			robotgo.KeyPress("e")
 			robotgo.MilliSleep(500)
@@ -134,7 +218,7 @@ func doAttack() {
 			indexE = time.Now().Unix()
 		}
 
-		if nowSec-indexR >= 9 {
+		if nowSec-indexR > 9 {
 			fmt.Println("放R技能")
 			robotgo.KeyPress("r")
 			robotgo.MilliSleep(500)
@@ -142,7 +226,7 @@ func doAttack() {
 
 		}
 
-		if nowSec-indexF >= 14 {
+		if nowSec-indexF > 14 {
 			fmt.Println("放F 技能")
 			robotgo.KeyPress("f")
 			robotgo.MilliSleep(500)
@@ -154,20 +238,50 @@ func doAttack() {
 
 }
 
+// 机甲处理
+func processJade() {
+	color := robotgo.GetPixelColor(jadeX, jadeY, 0)
+	color = color[0:2]
+	fmt.Println(color)
+	if !colorMatch(color, jadeColor) {
+		fmt.Println("机甲死了 重新召唤")
+
+		robotgo.Sleep(1)
+		robotgo.KeyPress("G")
+		robotgo.MilliSleep(700)
+		robotgo.KeyPress("space")
+		robotgo.MilliSleep(200)
+		robotgo.KeyPress("space")
+		robotgo.MilliSleep(200)
+		robotgo.KeyPress("space")
+
+		robotgo.Sleep(1)
+		robotgo.KeyPress("b")
+		robotgo.Sleep(1)
+
+	}
+}
+
 // 处理在水中
 func processInWater() {
 	color := robotgo.GetPixelColor(waterX, waterY, 0)
 	color = color[0:2]
-	fmt.Println(color)
+	fmt.Println("水中颜色:", color)
 	if colorMatch(color, waterColor) {
 		fmt.Println("走到水中去了，掉头")
 
-		robotgo.KeyDown("alt")
-		robotgo.MilliSleep(200)
-		robotgo.KeyPress("w")
-		robotgo.KeyUp("alt")
+		turn(1000)
 
-		runWithJump(10)
+		robotgo.KeyDown("w")
+		robotgo.MilliSleep(200)
+		robotgo.KeyDown("space")
+
+		robotgo.Sleep(10)
+
+		robotgo.KeyUp("space")
+		robotgo.KeyUp("w")
+
+		runWithJump(15)
 
 	}
 }
@@ -182,18 +296,30 @@ func processHP() {
 
 		//翻滚
 		robotgo.KeyPress("v")
-		robotgo.MilliSleep(500)
+		robotgo.MilliSleep(1000)
+
+		//翻滚
+		robotgo.KeyPress("v")
+		robotgo.MilliSleep(1000)
 
 		//加血
 
 		robotgo.KeyPress("t")
-		robotgo.MilliSleep(800)
+		robotgo.MilliSleep(850)
 
 		robotgo.KeyDown("alt")
 		robotgo.KeyPress("w")
 		robotgo.KeyUp("alt")
 
-		runWithJump(10)
+		turn(700)
+
+		runWithJump(15)
+
+		turn(700)
+
+		runWithJump(15)
+
+		robotgo.KeyPress("m")
 	}
 }
 
@@ -223,12 +349,17 @@ func colorMatch(color string, srcColors []string) bool {
 	return false
 }
 
-func isGetTarget() bool {
+func isGetTarget1(targetX int, targetY int, targetColor []string) bool {
 	color := robotgo.GetPixelColor(targetX, targetY, 0)
-	fmt.Print("目标颜色:", color)
+	//fmt.Print("目标颜色:", color)
 	color = color[0:1]
-	fmt.Println("--------", color)
+	//fmt.Println("--------", color)
 	return colorMatch(color, targetColor)
+}
+
+func isGetTarget() bool {
+
+	return isGetTarget1(targetX, targetY, targetColor) || isGetTarget1(652, 160, []string{"9"})
 }
 
 func runWithJump(sec int) {
@@ -241,4 +372,16 @@ func runWithJump(sec int) {
 		}
 	}
 	robotgo.KeyUp("w")
+}
+
+func turn(msec int) {
+	robotgo.MilliSleep(100)
+
+	direction := "j"
+	if time.Now().Second()%2 == 0 {
+		direction = "k"
+	}
+	robotgo.KeyDown(direction)
+	robotgo.MilliSleep(msec)
+	robotgo.KeyUp(direction)
 }

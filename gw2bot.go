@@ -91,6 +91,9 @@ func gw2bot() {
 
 // 自动寻怪
 func getTarget() {
+	// if count%10 == 0 {
+	// 	robotgo.Sleep(10)
+	// }
 	//处理在水中
 	processInWater()
 
@@ -103,13 +106,17 @@ func getTarget() {
 	} else {
 		fmt.Println("没有找到目标怪 换方向 向前走")
 
-		//换方向
-		turn(800)
+		// robotgo.KeyDown("alt")
+		// robotgo.KeyPress("w")
+		// robotgo.KeyUp("alt")
 
-		robotgo.MilliSleep(100)
+		//换方向
+		turn(600)
+
+		robotgo.MilliSleep(200)
 
 		//跳着向前走
-		runWithJump(12)
+		runWithJump(6)
 
 	}
 
@@ -157,7 +164,7 @@ func tryAttack() bool {
 			//tryAttack()
 		} else {
 			//如果打到怪了退出 进行下一步
-			return isCombat()
+			return true
 		}
 
 	}
@@ -169,12 +176,14 @@ func tryAttack() bool {
 	robotgo.KeyPress("w")
 	robotgo.KeyUp("alt")
 
-	runWithJump(15)
+	runWithJump(6)
 
 	turn(700)
 
-	runWithJump(15)
+	runWithJump(6)
 
+	robotgo.Move(100, 100)
+	robotgo.Click()
 	return false
 
 }
@@ -209,7 +218,7 @@ func doAttack() {
 		}
 
 		nowSec := time.Now().Unix()
-		fmt.Println("E", nowSec, indexE)
+		//fmt.Println("E", nowSec, indexE)
 		if nowSec-indexE > 6 {
 			fmt.Println("放E 技能")
 			robotgo.KeyPress("e")
@@ -313,11 +322,16 @@ func processHP() {
 
 		turn(700)
 
-		runWithJump(15)
+		runWithJump(8)
 
 		turn(700)
 
-		runWithJump(15)
+		runWithJump(8)
+
+		robotgo.Move(100, 100)
+		robotgo.Click()
+
+		robotgo.MilliSleep(300)
 
 		robotgo.KeyPress("m")
 	}
@@ -363,13 +377,16 @@ func isGetTarget() bool {
 }
 
 func runWithJump(sec int) {
+
+	robotgo.MilliSleep(200)
 	robotgo.KeyDown("w")
 	robotgo.MilliSleep(200)
 	for i := 0; i < sec; i++ {
 		if i%2 == 0 {
 			robotgo.KeyPress("space")
-			robotgo.Sleep(1)
+
 		}
+		robotgo.Sleep(1)
 	}
 	robotgo.KeyUp("w")
 }

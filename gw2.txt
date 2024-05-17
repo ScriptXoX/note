@@ -15,6 +15,25 @@ Guild Wars 2: End of Dragons- Collection	$49.99
 Standard
 Access Key: 1DDX2K-TV8PF-PKGR-8QP-Q4TGLT9
 
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node1.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#%E5%89%A9%E4%BD%99%E6%B5%81%E9%87%8F%EF%BC%9A1024%20GB
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node1.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#%E8%B7%9D%E7%A6%BB%E4%B8%8B%E6%AC%A1%E9%87%8D%E7%BD%AE%E5%89%A9%E4%BD%99%EF%BC%9A15%20%E5%A4%A9
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node1.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#%E5%A5%97%E9%A4%90%E5%88%B0%E6%9C%9F%EF%BC%9A2024-06-16
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node1.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#Tokyo%20Tj%20-%20C%20Group
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node2.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#Incheon%20Tj%20-%20C%20Group
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node3.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#Singapore%20Tj%20-%20C%20Group
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node4.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#Hongkong%20Tj%20-%20C%20Group
+trojan://680e1b82-936b-49e3-b7cf-dce0e77ce382@cgroup.node5.t.nodelist-gfwairport2.top:50001?security=tls&type=tcp#California%20Tj%20-%20C%20Group
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2ODBlMWI4Mi05MzZiLTQ5ZTMtYjdjZi1kY2UwZTc3Y2UzODI=@cgroup.node1.s.nodelist-gfwairport2.top:50001#Tokyo%20SS%20-%20C%20Group
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2ODBlMWI4Mi05MzZiLTQ5ZTMtYjdjZi1kY2UwZTc3Y2UzODI=@cgroup.node2.s.nodelist-gfwairport2.top:50001#Incheon%20SS%20-%20C%20Group
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2ODBlMWI4Mi05MzZiLTQ5ZTMtYjdjZi1kY2UwZTc3Y2UzODI=@cgroup.node3.s.nodelist-gfwairport2.top:50001#Singapore%20SS%20-%20C%20Group
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2ODBlMWI4Mi05MzZiLTQ5ZTMtYjdjZi1kY2UwZTc3Y2UzODI=@cgroup.node4.s.nodelist-gfwairport2.top:50001#Hongkong%20SS%20-%20C%20Group
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2ODBlMWI4Mi05MzZiLTQ5ZTMtYjdjZi1kY2UwZTc3Y2UzODI=@cgroup.node5.s.nodelist-gfwairport2.top:50001#California%20SS%20-%20C%20Group
+vmess://eyJhZGQiOiJjZ3JvdXAubm9kZTEudi5ub2RlbGlzdC1nZndhaXJwb3J0Mi50b3AiLCJhaWQiOiIwIiwiaG9zdCI6IiIsImlkIjoiNjgwZTFiODItOTM2Yi00OWUzLWI3Y2YtZGNlMGU3N2NlMzgyIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI1MDAwMSIsInBzIjoiVG9reW8gVjIgLSBDIEdyb3VwIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiIiLCJ2IjoiMiJ9
+vmess://eyJhZGQiOiJjZ3JvdXAubm9kZTIudi5ub2RlbGlzdC1nZndhaXJwb3J0Mi50b3AiLCJhaWQiOiIwIiwiaG9zdCI6IiIsImlkIjoiNjgwZTFiODItOTM2Yi00OWUzLWI3Y2YtZGNlMGU3N2NlMzgyIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI1MDAwMSIsInBzIjoiSW5jaGVvbiBWMiAtIEMgR3JvdXAiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoiIiwidHlwZSI6IiIsInYiOiIyIn0=
+vmess://eyJhZGQiOiJjZ3JvdXAubm9kZTMudi5ub2RlbGlzdC1nZndhaXJwb3J0Mi50b3AiLCJhaWQiOiIwIiwiaG9zdCI6IiIsImlkIjoiNjgwZTFiODItOTM2Yi00OWUzLWI3Y2YtZGNlMGU3N2NlMzgyIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI1MDAwMSIsInBzIjoiU2luZ2Fwb3JlIFYyIC0gQyBHcm91cCIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoiIiwidiI6IjIifQ==
+vmess://eyJhZGQiOiJjZ3JvdXAubm9kZTQudi5ub2RlbGlzdC1nZndhaXJwb3J0Mi50b3AiLCJhaWQiOiIwIiwiaG9zdCI6IiIsImlkIjoiNjgwZTFiODItOTM2Yi00OWUzLWI3Y2YtZGNlMGU3N2NlMzgyIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI1MDAwMSIsInBzIjoiSG9uZ2tvbmcgVjIgLSBDIEdyb3VwIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiIiLCJ2IjoiMiJ9
+vmess://eyJhZGQiOiJjZ3JvdXAubm9kZTUudi5ub2RlbGlzdC1nZndhaXJwb3J0Mi50b3AiLCJhaWQiOiIwIiwiaG9zdCI6IiIsImlkIjoiNjgwZTFiODItOTM2Yi00OWUzLWI3Y2YtZGNlMGU3N2NlMzgyIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI1MDAwMSIsInBzIjoiQ2FsaWZvcm5pYSBWMiAtIEMgR3JvdXAiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoiIiwidHlwZSI6IiIsInYiOiIyIn0=
+
 
 scriptxox@hotmail.com
 @D-YKgY2gvESiXD
